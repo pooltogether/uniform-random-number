@@ -1,5 +1,7 @@
 # Uniform Random Number
 
+[![CircleCI](https://circleci.com/gh/pooltogether/uniform-random-number.svg?style=svg)](https://circleci.com/gh/pooltogether/uniform-random-number)
+
 This Solidity library eliminates module bias when using a large number to select from a limited range of numbers.
 
 For example:
