@@ -1,6 +1,6 @@
 # Uniform Random Number
 
-This Solidity library eliminates module bias when using a random number to select out of a limited range of numbers.
+This Solidity library eliminates module bias when using a large number to select from a limited range of numbers.
 
 For example:
 
@@ -22,7 +22,7 @@ The above might do, until we realize that:
 | 4 | 0 |
 | 5 | 1 |
 
-We noticed that 0 and 1 are overrepresented.  This is modulo bias, and when making *fair* selection algorithms it will not do.
+Notice that 0 and 1 are overrepresented.  This is modulo bias, and is problematic when making *fair* selection algorithms.
 
 This library mitigates modulo bias using an algorithm described in [this article](https://medium.com/hownetworks/dont-waste-cycles-with-modulo-bias-35b6fdafcf94).
 
@@ -49,3 +49,7 @@ uint256 randomNumber = uint256(keccak('Hello'));
 uint256 upperLimit = 10;
 UniformRandomNumber.uniform(randomNumber, upperLimit);
 ```
+
+# Audit
+
+This code has been audited by [OpenZeppelin](https://openzeppelin.com/) and [Quantstamp](https://quantstamp.com/) as part of the [PoolTogether codebase](https://github.com/pooltogether/pooltogether-contracts).
