@@ -2040,7 +2040,7 @@ commander@2.15.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
   integrity sha512-VlfT9F3V0v+jr4yxPc5gg9s62/fIVWsd2Bk2iD435um1NlGMYdVCq+MjcXnhYq2icNOizHr1kK+5TI6H0Hy0ag==
 
-commander@3.0.2:
+commander@3.0.2, commander@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e"
   integrity sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
@@ -8079,6 +8079,13 @@ truffle-error@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/truffle-error/-/truffle-error-0.0.5.tgz#6b5740c9f3aac74f47b85d654fff7fe2c1fc5e0e"
   integrity sha512-JpzPLMPSCE0vaZ3vH5NO5u42GpMj/Y1SRBkQ6b69PSw3xMSH1umApN32cEcg1nnh8q5FNYc5FnKu0m4tiBffyQ==
+
+truffle-extract@pooltogether/truffle-extract:
+  version "1.0.0"
+  resolved "https://codeload.github.com/pooltogether/truffle-extract/tar.gz/2a57b6e63a8a2057aad0fec63ba255cd46e9ff1d"
+  dependencies:
+    chalk "^2.4.2"
+    commander "^3.0.2"
 
 truffle-flattener@^1.4.0:
   version "1.4.0"

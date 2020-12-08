@@ -8,7 +8,9 @@
   "scripts": {
     "test": "truffle test --migrations_directory ./migrations/empty",
     "coverage": "COVERAGE=true truffle run coverage --migrations_directory ./migrations/empty",
-    "compile": "truffle compile"
+    "compile": "truffle compile",
+    "prepack": "yarn compile && truffle-extract -b build/contracts -o abis",
+    "postpublish": "PACKAGE_VERSION=$(./scripts/package-version.sh) && git tag -ae v$PACKAGE_VERSION && git push --tags"
   },
   "dependencies": {},
   "devDependencies": {
@@ -21,7 +23,8 @@
     "mocha-junit-reporter": "1.23.1",
     "solc": "0.6.4",
     "solidity-coverage": "0.7.0-beta.2",
-    "truffle": "^5.1.19"
+    "truffle": "^5.1.19",
+    "truffle-extract": "pooltogether/truffle-extract"
   },
   "files": [
     "LICENSE",
