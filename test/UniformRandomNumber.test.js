@@ -1,12 +1,15 @@
-const chai = require('./helpers/chai')
-const ExposedUniformRandomNumber = artifacts.require('ExposedUniformRandomNumber.sol')
+const { expect } = require('chai')
+const hre = require('hardhat')
+const { ethers } = require('hardhat')
 
-contract('ExposedUniformRandomNumber', () => {
+
+describe('ExposedUniformRandomNumber', () => {
 
   let random
 
   beforeEach(async () => {
-    random = await ExposedUniformRandomNumber.new()
+    const randomFactory = await hre.ethers.getContractFactory("ExposedUniformRandomNumber")
+    random = await randomFactory.deploy()
   })
 
   describe('uniform()', () => {
@@ -15,12 +18,12 @@ contract('ExposedUniformRandomNumber', () => {
       // Here we confirm that 2 is skipped
       const result = await random.uniform(num, '10')
       // result won't be num, it will be the module of the hash of num (and complete in one loop)
-      const hash = web3.utils.toBN(web3.utils.soliditySha3(num))
-      assert.equal(result.toString(), hash.mod(web3.utils.toBN('10')))
+      const hash = ethers.BigNumber.from(ethers.utils.solidityKeccak256(["uint256"],[num]))
+      expect(result.toString()).to.equal(hash.mod(ethers.BigNumber.from("10")))      
     }
 
     it('should revert if the upper bound is zero', async () =>{
-      await chai.assert.isRejected(random.uniform('1234', '0'), /UniformRand\/min-bound/)
+      await expect(random.uniform('1234', '0')).to.be.revertedWith("UniformRand/min-bound")
     })
 
     it('should skip the first X numbers that cause modulo bias', async () => {
@@ -43,7 +46,7 @@ contract('ExposedUniformRandomNumber', () => {
 
       // five is okay
       result = await random.uniform('6', '10')
-      assert.equal(result.toString(), '6')
+      expect(result.toString(), "6")
     })
   })
 })
