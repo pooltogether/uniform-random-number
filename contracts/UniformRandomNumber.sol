@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /**
 Copyright 2019 PoolTogether LLC
 
@@ -16,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with PoolTogether.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-pragma solidity 0.5.12;
+pragma solidity >=0.6.0;
 
 /**
  * @author Brendan Asselstine
@@ -30,7 +31,7 @@ library UniformRandomNumber {
   /// @return A random number less than the _upperBound
   function uniform(uint256 _entropy, uint256 _upperBound) internal pure returns (uint256) {
     require(_upperBound > 0, "UniformRand/min-bound");
-    uint256 min = -_upperBound % _upperBound;
+    uint256 min = (type(uint256).max - _upperBound + 1) % _upperBound;
     uint256 random = _entropy;
     while (true) {
       if (random >= min) {

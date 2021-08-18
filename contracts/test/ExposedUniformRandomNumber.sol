@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 /**
 Copyright 2019 PoolTogether LLC
 
@@ -16,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with PoolTogether.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-pragma solidity 0.5.12;
+pragma solidity >=0.6.0;
 
 import "../UniformRandomNumber.sol";
 

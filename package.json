@@ -1,27 +1,50 @@
 {
-  "name": "pooltogether-contracts",
-  "version": "0.1.0",
-  "description": "PoolManager Lossless Pool Smart Contracts",
+  "name": "@pooltogether/uniform-random-number",
+  "version": "1.0.0-beta.2",
+  "description": "PoolTogether Solidity Modulo Bias library",
   "main": "index.js",
   "repository": "git@github.com:pooltogether/pooltogether-contracts.git",
-  "author": "Brendan Asselstine brendan@pooltogether.us",
+  "author": "Brendan Asselstine brendan@pooltogether.com",
   "scripts": {
-    "test": "truffle test --migrations_directory ./migrations/empty",
-    "coverage": "COVERAGE=true truffle run coverage --migrations_directory ./migrations/empty",
-    "compile": "truffle compile"
+    "test": "hardhat test",
+    "clean": "rm -rf artifacts cache build",
+    "coverage": "HIDE_DEPLOY_LOG=true OPTIMIZER_DISABLED=true hardhat coverage",
+    "compile": "hardhat compile",
+    "prepack": "yarn clean && hardhat compile",
+    "postpublish": "PACKAGE_VERSION=$(./scripts/package-version.sh) && git tag -ae v$PACKAGE_VERSION && git push --tags"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "solc": "0.5.12",
-    "solidity-coverage": "0.7.0-beta.2",
-    "@openzeppelin/cli": "2.6.0",
-    "eth-gas-reporter": "0.2.0",
-    "ethers": "^4.0.40",
-    "ganache-cli": "6.7.0",
-    "mocha-junit-reporter": "1.23.1",
-    "truffle": "5.0.42"
-  }
+    "@nomiclabs/hardhat-ethers": "2.0.2",
+    "@nomiclabs/hardhat-etherscan": "2.1.1",
+    "@nomiclabs/hardhat-waffle": "2.0.1",
+    "@openzeppelin/hardhat-upgrades": "1.6.0",
+    "@pooltogether/pooltogether-proxy-factory-package": "^1.0.1",
+    "@types/chai": "4.2.15",
+    "@types/debug": "4.1.5",
+    "@types/mocha": "8.2.1",
+    "@types/node": "14.14.32",
+    "chai": "4.3.4",
+    "chalk": "4.1.0",
+    "debug": "4.3.1",
+    "ethereum-waffle": "3.3.0",
+    "ethers": "5.0.32",
+    "hardhat": "2.1.1",
+    "hardhat-abi-exporter": "2.1.2",
+    "hardhat-deploy": "0.7.0-beta.47",
+    "hardhat-deploy-ethers": "0.3.0-beta.7",
+    "hardhat-gas-reporter": "1.0.4",
+    "prettier": "2.2.1",
+    "solhint": "3.3.3",
+    "solidity-coverage": "0.7.16",
+    "ts-generator": "0.1.1",
+    "ts-node": "9.1.1",
+    "typescript": "4.2.3"
+  },
+  "files": [
+    "LICENSE",
+    "abis/**",
+    "artifacts/**",
+    "contracts/**"
+  ]
 }
