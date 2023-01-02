@@ -54,4 +54,4 @@ UniformRandomNumber.uniform(randomNumber, upperLimit);
 
 # Audit
 
-This code has been audited by [OpenZeppelin](https://openzeppelin.com/) and [Quantstamp](https://quantstamp.com/) as part of the [PoolTogether codebase](https://github.com/pooltogether/pooltogether-contracts).
+This code has been audited by [OpenZeppelin](https://openzeppelin.com/) and [Quantstamp](https://quantstamp.com/) as part of the [PoolTogether codebase](https://github.com/pooltogether/pooltogether-contracts).test
