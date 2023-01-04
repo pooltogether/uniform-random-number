@@ -17,3 +17,4 @@ coverage.json
 test-results.xml
 junit
 .ganache-fork
+.git/
